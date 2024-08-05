@@ -21,12 +21,17 @@ public class TestEntity {
 
     String name;
 
-    @NonNull
-    Boolean isStarted;
+    @Builder.Default
+    Boolean isStarted = false;
 
     @ManyToOne
     //@JoinColumn(table = "psychologist")
     PsychologistEntity psychologist;
+
+    public static TestEntity makeDefault() {
+        return builder()
+                .build();
+    }
 
 
 }
